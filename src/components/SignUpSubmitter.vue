@@ -113,7 +113,6 @@ export default {
           v-model="account.firstname"
           type="text"
           class="form-control"
-          id="firstnameSignup"
           name="firstname"
           placeholder="Password"
           required

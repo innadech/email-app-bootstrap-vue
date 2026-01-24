@@ -1,13 +1,13 @@
 <script>
 export default {
   emits: ['email-submitted'],
-  props: ['currentAccount'],
+  // props: ['currentAccount'],
 
   data() {
     return {
       email: {
         recipient: '',
-        sender: currentAccount,
+        sender: '',
         subject: '',
         text: '',
       },
