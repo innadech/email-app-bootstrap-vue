@@ -1,9 +1,16 @@
 <script>
 import SignUpSubmitter from '@/components/SignUpSubmitter.vue'
 
+import registerAccount from '@/sv/sdfsdf'
+
 export default {
   components: { SignUpSubmitter },
-  emits: ['submitted'],
+
+  methods: {
+    submit(account) {
+      registerAccount(account)
+    },
+  },
 }
 </script>
 
