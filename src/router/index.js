@@ -6,11 +6,12 @@ import PageCompose from '@/pages/PageCompose.vue'
 import PageAddress from '@/pages/PageAddress.vue'
 
 const routes = [
-  { path: '/signUp', component: PageSignUp },
-  { path: '/signIn', component: PageSignIn },
-  { path: '/allEmail', component: PageAllEmail },
+  { path: '/', component: PageSignUp },
+  { path: '/sign-up', component: PageSignUp },
+  { path: '/sign-in', component: PageSignIn },
+  { path: '/all-emails', component: PageAllEmail },
   { path: '/compose', component: PageCompose },
-  { path: '/address', component: PageAddress },
+  { path: '/addresses', component: PageAddress },
 ]
 
 const router = createRouter({
