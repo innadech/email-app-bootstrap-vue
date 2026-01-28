@@ -4,17 +4,17 @@ export default {
 
   data() {
     return {
-      account: {
-        date: Date.now(),
-        id: this.makeId(),
+      regData: {
         address: '',
         password: '',
+        repassword: '',
         firstname: '',
         lastname: '',
       },
       err: {
         address: '',
         password: '',
+        repassword: '',
         firstname: '',
         lastname: '',
       },
@@ -72,77 +72,71 @@ export default {
       <p class="fs-2 text-center">Sign up</p>
       <div class="form-floating mb-3">
         <input
-          v-model="account.email"
+          v-model="account.address"
           type="email"
-          class="form-control"
           name="address"
-          placeholder="name@example.com"
+          placeholder="username@example.com"
           required
           minlength="2"
+          class="form-control"
         />
         <label for="floatingInput">Email address</label>
-        <span v-if="err.email">{{ err.email }}</span>
+        <span v-if="err.address">{{ err.address }}</span>
       </div>
       <div class="form-floating">
         <input
           v-model="account.password"
           type="password"
-          class="form-control"
           name="password"
-          placeholder="Password"
           required
           minlength="3"
+          class="form-control"
         />
         <label for="floatingPassword">Password</label>
         <span v-if="err.password">{{ err.password }}</span>
       </div>
       <div class="form-floating">
         <input
+          v-model="account.repassword"
           type="password"
-          class="form-control"
-          id="repeatpasswordSignup"
-          name="repeatpassword"
-          placeholder="Password"
+          name="repassword"
           required
           minlength="3"
+          class="form-control"
         />
         <label for="floatingPassword">Password Repeat</label>
+        <span v-if="err.repassword">{{ err.repassword }}</span>
       </div>
       <div class="form-floating mt-3">
         <input
           v-model="account.firstname"
           type="text"
-          class="form-control"
           name="firstname"
-          placeholder="Password"
+          placeholder="Вася"
           required
           minlength="1"
+          class="form-control"
         />
         <label for="floatingPassword">Name</label>
         <span v-if="err.firstname">{{ err.firstname }}</span>
       </div>
       <div class="form-floating">
-        <input
-          v-model="account.lastname"
-          type="text"
-          class="form-control"
-          id="lastnameSignup"
-          name="lastname"
-          placeholder="Password"
-          required
-          minlength="3"
-        />
-        <label for="floatingPassword">Lastname</label>
+        <label>
+          Lastname
+          <input
+            v-model="account.lastname"
+            type="text"
+            name="lastname"
+            placeholder="Васильев"
+            required
+            minlength="3"
+            class="form-control"
+          />
+        </label>
         <span v-if="err.lastname">{{ err.lastname }}</span>
       </div>
       <div class="text-center mt-5">
-        <button
-          type="submit"
-          class="btn btn-primary btn-lg"
-          id="elRegisterButton"
-        >
-          Sign up
-        </button>
+        <button type="submit" class="btn btn-primary btn-lg">Sign up</button>
       </div>
     </div>
   </form>
