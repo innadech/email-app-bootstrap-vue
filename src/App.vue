@@ -1,12 +1,18 @@
 <script>
-export default {}
+import PageSignUp from './pages/PageSignUp.vue'
+
+export default {
+  components: {
+    PageSignUp,
+  },
+}
 </script>
 
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand">
-        <RouterLink to="/signUp">Sign Up</RouterLink>
+        <RouterLink to="/sign-up">Sign Up</RouterLink>
       </a>
       <button
         class="navbar-toggler"
@@ -23,17 +29,17 @@ export default {}
         <ul id="elUl" class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link">
-              <RouterLink to="/signIn">Sign In</RouterLink>
+              <RouterLink to="/sign-in">Sign In</RouterLink>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link">
-              <RouterLink to="/allEmail">All email</RouterLink>
+              <RouterLink to="/all-emails">All email</RouterLink>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link">
-              <RouterLink to="/address">Address</RouterLink>
+              <RouterLink to="/addresses">Address</RouterLink>
             </a>
           </li>
           <li class="nav-item">
@@ -60,5 +66,6 @@ export default {}
     class="container-fluid mt-5 bg-light-subtle border border-primary-subtle rounded-3"
   >
     <RouterView />
+    <PageSignUp />
   </div>
 </template>

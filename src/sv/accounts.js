@@ -1,46 +1,24 @@
-let accounts = []
+let serverAccounts = []
 
-function addAccount(account) {
-  //
-  //
-  //
-  accounts.push(account)
+function checkRegData(a) {
+  const okEmail =
+    a.address && typeof a.address === 'string' && a.address.trim().length > 0
+  const okPasswd = a.address && a.password && a.password === a.repeatpassword
+  if (okEmail && okPasswd) return true
+  console.log('неправильно заполнена форма регистрации')
+  return false
 }
 
-function registerAccount(data) {
-  // body
+function registerAccount(regData) {
+  if (!checkRegData(regData)) return false
+  const findedAccount = serverAccounts.find(a => a.address === regData.address)
+  if (findedAccount) {
+    return false
+  } else {
+    serverAccounts.push(regData)
+    // saveAccounts(accounts)
+    return true
+  }
 }
 
-function addCar(car) {
-  // body
-}
-function removeCarById(carId) {
-  // body
-}
-
-function buyCar(car) {
-  // body
-}
-function sellCarById(carId) {
-  // body
-}
-
-// set
-
-// push
-
-// append
-
-// join
-
-// make
-
-// create
-
-// get
-
-// delete
-
-// remove
-
-export default registerAccount
+export { registerAccount }
