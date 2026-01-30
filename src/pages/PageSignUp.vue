@@ -1,13 +1,14 @@
 <script>
 import SignUpSubmitter from '@/components/SignUpSubmitter.vue'
 
-import { registerAccount } from '@/sv/accounts'
+import { registerAccount, fillRegData } from '@/sv/accounts'
 
 export default {
   components: { SignUpSubmitter },
 
   methods: {
     submit(account) {
+      fillRegData(account)
       registerAccount(account)
     },
   },

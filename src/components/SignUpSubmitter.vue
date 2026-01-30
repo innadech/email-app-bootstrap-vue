@@ -33,6 +33,11 @@ export default {
       } else {
         this.err.password = ''
       }
+      if (this.account.repassword.length === 0) {
+        this.err.repassword = 'Repeat password'
+      } else {
+        this.err.repassword = ''
+      }
       if (this.account.firstname.length === 0) {
         this.err.firstname = 'Insert firstname'
       } else {
@@ -71,53 +76,61 @@ export default {
     >
       <p class="fs-2 text-center">Sign up</p>
       <div class="form-floating mb-3">
-        <input
-          v-model="account.address"
-          type="email"
-          name="address"
-          placeholder="username@example.com"
-          required
-          minlength="2"
-          class="form-control"
-        />
-        <label for="floatingInput">Email address</label>
+        <label for="">
+          Email address
+          <input
+            v-model="account.address"
+            type="email"
+            name="address"
+            placeholder="username@example.com"
+            required
+            minlength="2"
+            class="form-control"
+          />
+        </label>
         <span v-if="err.address">{{ err.address }}</span>
       </div>
       <div class="form-floating">
-        <input
-          v-model="account.password"
-          type="password"
-          name="password"
-          required
-          minlength="3"
-          class="form-control"
-        />
-        <label for="floatingPassword">Password</label>
+        <label for="">
+          Password
+          <input
+            v-model="account.password"
+            type="password"
+            name="password"
+            required
+            minlength="3"
+            class="form-control"
+          />
+        </label>
         <span v-if="err.password">{{ err.password }}</span>
       </div>
       <div class="form-floating">
-        <input
-          v-model="account.repassword"
-          type="password"
-          name="repassword"
-          required
-          minlength="3"
-          class="form-control"
-        />
-        <label for="floatingPassword">Password Repeat</label>
+        <label for="">
+          Password Repeat
+          <input
+            v-model="account.repassword"
+            type="password"
+            name="repassword"
+            required
+            minlength="3"
+            class="form-control"
+          />
+        </label>
         <span v-if="err.repassword">{{ err.repassword }}</span>
       </div>
       <div class="form-floating mt-3">
-        <input
-          v-model="account.firstname"
-          type="text"
-          name="firstname"
-          placeholder="Вася"
-          required
-          minlength="1"
-          class="form-control"
-        />
-        <label for="floatingPassword">Name</label>
+        <label for="">
+          Name
+          <input
+            v-model="account.firstname"
+            type="text"
+            name="firstname"
+            placeholder="Вася"
+            required
+            minlength="1"
+            class="form-control"
+          />
+        </label>
         <span v-if="err.firstname">{{ err.firstname }}</span>
       </div>
       <div class="form-floating">
