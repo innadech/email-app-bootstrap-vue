@@ -1,12 +1,4 @@
-<script>
-import PageSignUp from './pages/PageSignUp.vue'
-
-export default {
-  components: {
-    PageSignUp,
-  },
-}
-</script>
+<script></script>
 
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -66,6 +58,5 @@ export default {
     class="container-fluid mt-5 bg-light-subtle border rounded-3"
   >
     <RouterView />
-    <PageSignUp />
   </div>
 </template>
