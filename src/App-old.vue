@@ -110,7 +110,7 @@ export default {
 <template>
   <div
     style="width: 70%; height: 600px"
-    class="container-fluid mt-5 bg-light-subtle border border-primary-subtle rounded-3"
+    class="container-fluid mt-5 bg-light-subtle border rounded-3"
   >
     <PageSignUp v-on:submitted="submit" />
     <PageSignIn v-on:submitted="authenticate" />

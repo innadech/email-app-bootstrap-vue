@@ -63,7 +63,7 @@ export default {
   </nav>
   <div
     style="width: 70%; height: 600px"
-    class="container-fluid mt-5 bg-light-subtle border border-primary-subtle rounded-3"
+    class="container-fluid mt-5 bg-light-subtle border rounded-3"
   >
     <RouterView />
     <PageSignUp />

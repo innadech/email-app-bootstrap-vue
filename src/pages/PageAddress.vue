@@ -9,19 +9,17 @@ export default {
 </script>
 
 <template>
-  <div
-    class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
-  >
+  <div class="container-fluid mt-3 bg-light-subtle border rounded-3">
     <div class="text-center">
       <h2>Counterparties</h2>
     </div>
     <div
       style="height: 600px"
-      class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
+      class="container-fluid mt-3 bg-light-subtle border rounded-3"
     >
       <div
         style="height: 90%"
-        class="container p-2 bg-primary-subtle border border-primary-subtle rounded-3 d-none"
+        class="container p-2 bg-primary-subtle border rounded-3 d-none"
       >
         <AddressList
           v-bind:addresses="addresses"

@@ -17,12 +17,10 @@ export default {
 </script>
 
 <template>
-  <div
-    class="container-fluid mt-3 min-vw-500 bg-light-subtle border border-primary-subtle rounded-3"
-  >
+  <div class="container-fluid mt-3 min-vw-500 bg-light-subtle border rounded-3">
     <!-- <div
         style="height: 50px"
-        class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
+        class="container-fluid mt-3 bg-light-subtle border rounded-3"
       >
         <div class="row align-items-start text-center p-2">
           <div class="col"><a href="./compose.html">Compose</a></div>
@@ -35,7 +33,7 @@ export default {
       </div> -->
     <div
       style="height: 600px"
-      class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
+      class="container-fluid mt-3 bg-light-subtle border rounded-3"
     >
       <div style="height: 100%" class="row gx-5">
         <div class="col-sm-3 text-left">
@@ -47,7 +45,7 @@ export default {
           <div
             id="elEmailsList"
             style="height: 90%"
-            class="container p-2 bg-primary-subtle border border-primary-subtle rounded-3"
+            class="container p-2 bg-primary-subtle border rounded-3"
           >
             <AllEmailList
               v-bind:client-inbox="clientInbox"

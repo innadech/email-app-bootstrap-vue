@@ -8,19 +8,17 @@ export default {
 </script>
 
 <template>
-  <div
-    class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
-  >
+  <div class="container-fluid mt-3 bg-light-subtle border rounded-3">
     <div class="text-center">
       <h2>Compose</h2>
     </div>
     <div
       style="height: 600px"
-      class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
+      class="container-fluid mt-3 bg-light-subtle border rounded-3"
     >
       <div
         style="height: 500px"
-        class="container p-4 bg-light-subtle border border-primary-subtle rounded-3"
+        class="container p-4 bg-light-subtle border rounded-3"
       >
         <ComposeSubmitter v-on:email-submitted="$emit('submitted', $event)" />
       </div>

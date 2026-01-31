@@ -95,9 +95,7 @@ export default {
       <div class="container overflow-hidden text-center">
         <div class="row gx-5">
           <div class="col">
-            <div
-              class="p-2 bg-light-subtle border border-primary-subtle rounded-3"
-            >
+            <div class="p-2 bg-light-subtle border rounded-3">
               <button id="elSend" type="submit" class="btn btn-primary btn-lg">
                 Send
               </button>
