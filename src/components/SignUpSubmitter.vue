@@ -1,6 +1,6 @@
 <script>
 export default {
-  emits: ['account-submitted'],
+  emits: ['reg-data-submitted'],
 
   data() {
     return {
@@ -54,15 +54,12 @@ export default {
         this.regData.firstname.length &&
         this.regData.lastname.length
       ) {
-        this.$emit('account-submitted', { ...this.regData })
+        this.$emit('reg-data-submitted', { ...this.regData })
         this.regData.address = ''
         this.regData.password = ''
         this.regData.firstname = ''
         this.regData.lastname = ''
       }
-    },
-    makeId() {
-      return Math.trunc(Math.random() * 10_000_000_000).toString(16)
     },
   },
 }
@@ -75,7 +72,7 @@ export default {
       class="container-fluid mt-5 bg-light-subtle"
     >
       <p class="fs-2 text-center">Sign up</p>
-      <div class="form-floating mb-3">
+      <div class="mb-3">
         <label for="">
           Email address
           <input
@@ -90,7 +87,7 @@ export default {
         </label>
         <span v-if="err.address">{{ err.address }}</span>
       </div>
-      <div class="form-floating">
+      <div class="">
         <label for="">
           Password
           <input
@@ -104,7 +101,7 @@ export default {
         </label>
         <span v-if="err.password">{{ err.password }}</span>
       </div>
-      <div class="form-floating">
+      <div class="">
         <label for="">
           Password Repeat
           <input
@@ -118,7 +115,7 @@ export default {
         </label>
         <span v-if="err.repassword">{{ err.repassword }}</span>
       </div>
-      <div class="form-floating mt-3">
+      <div class="mt-3">
         <label for="">
           Name
           <input
@@ -133,7 +130,7 @@ export default {
         </label>
         <span v-if="err.firstname">{{ err.firstname }}</span>
       </div>
-      <div class="form-floating">
+      <div class="">
         <label>
           Lastname
           <input

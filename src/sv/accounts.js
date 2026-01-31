@@ -1,30 +1,10 @@
 let serverAccounts = []
 
-let regData = {
-  address: '',
-  password: '',
-  repassword: '',
-  firstname: '',
-  lastname: '',
-}
-function fillRegData(data) {
-  regData.address = data.address || ''
-  regData.password = data.password || ''
-  regData.repassword = data.repassword || ''
-  regData.firstname = data.firstname || ''
-  regData.lastname = data.lastname || ''
+function makeId() {
+  return Math.trunc(Math.random() * 10_000_000_000).toString(16)
 }
 
-// const newAccount = createAccount(regData)
-
-// let newAccount = {
-//   id: 111,
-//   date: 111111111111,
-//   address: 'foo',
-//   password: 'bar',
-//   firstname: '',
-//   lastname: '',
-// }
+window.serverAccounts = serverAccounts
 
 function createAccount(regData) {
   return {
@@ -37,26 +17,38 @@ function createAccount(regData) {
   }
 }
 
-function checkRegData(a) {
+// ID - ID
+// SIGNIN - NA
+// not available
+
+function checkRegData(regData) {
+  console.log(regData)
+
   const okEmail =
-    a.address && typeof a.address === 'string' && a.address.trim().length > 0
-  const okPasswd = a.password && a.password === a.repeatpassword
+    regData.address &&
+    typeof regData.address === 'string' &&
+    regData.address.trim().length > 0
+
+  const okPasswd = regData.password && regData.password === regData.repassword
+
+  console.log(okEmail)
+  console.log(okPasswd)
+
   if (okEmail && okPasswd) return true
-  console.log('неправильно заполнена форма регистрации')
   return false
 }
 
 function registerAccount(regData) {
+  console.log('registerAccount')
   if (!checkRegData(regData)) return false
-  const createdAccount = createAccount(regData)
   const findedAccount = serverAccounts.find(a => a.address === regData.address)
-  if (findedAccount) {
-    return false
-  } else {
-    serverAccounts.push(createdAccount)
-    // saveAccounts(accounts)
-    return true
-  }
+  console.log('serverAccounts.find')
+  if (findedAccount) return false
+  const createdAccount = createAccount(regData)
+  serverAccounts.push(createdAccount)
+  console.log('serverAccounts.push')
+  // storage.saveAccounts(accounts)
+  return true
 }
 
-export { registerAccount, fillRegData }
+export { registerAccount }
