@@ -50,5 +50,35 @@ function registerAccount(regData) {
   // storage.saveAccounts(accounts)
   return true
 }
+function getAddressByAuth(auth) {
+  const findedAccount = serverAccounts.find(
+    a => a.address === auth.address && a.password === auth.password,
+  )
+  if (findedAccount === undefined) {
+    return undefined
+  } else {
+    return findedAccount.address
+  }
+}
 
-export { registerAccount }
+function authenticate(auth) {
+  console.log('###', auth)
+  const addressMaybe = getAddressByAuth(auth)
+  console.log('>>>', addressMaybe)
+  if (addressMaybe) {
+    const sessionId = startSession(addressMaybe)
+    return sessionId
+  } else {
+    return false
+  }
+}
+
+function authorize(sessionId) {
+  const address = getEmailBySessionId(sessionId)
+  const account = serverAccounts.find(a => a.address === address)
+  if (account) {
+    return account
+  }
+  return false
+}
+export { registerAccount, authenticate, authorize }
