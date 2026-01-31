@@ -23,42 +23,42 @@ export default {
 
   methods: {
     submit() {
-      if (this.account.address.length === 0) {
+      if (this.regData.address.length === 0) {
         this.err.address = 'Insert email'
       } else {
         this.err.address = ''
       }
-      if (this.account.password.length === 0) {
+      if (this.regData.password.length === 0) {
         this.err.password = 'Insert password'
       } else {
         this.err.password = ''
       }
-      if (this.account.repassword.length === 0) {
+      if (this.regData.repassword.length === 0) {
         this.err.repassword = 'Repeat password'
       } else {
         this.err.repassword = ''
       }
-      if (this.account.firstname.length === 0) {
+      if (this.regData.firstname.length === 0) {
         this.err.firstname = 'Insert firstname'
       } else {
         this.err.firstname = ''
       }
-      if (this.account.lastname.length === 0) {
+      if (this.regData.lastname.length === 0) {
         this.err.lastname = 'Insert lastname'
       } else {
         this.err.lastname = ''
       }
       if (
-        this.account.address.length &&
-        this.account.password.length &&
-        this.account.firstname.length &&
-        this.account.lastname.length
+        this.regData.address.length &&
+        this.regData.password.length &&
+        this.regData.firstname.length &&
+        this.regData.lastname.length
       ) {
-        this.$emit('account-submitted', { ...this.account })
-        this.account.address = ''
-        this.account.password = ''
-        this.account.firstname = ''
-        this.account.lastname = ''
+        this.$emit('account-submitted', { ...this.regData })
+        this.regData.address = ''
+        this.regData.password = ''
+        this.regData.firstname = ''
+        this.regData.lastname = ''
       }
     },
     makeId() {
@@ -79,7 +79,7 @@ export default {
         <label for="">
           Email address
           <input
-            v-model="account.address"
+            v-model="regData.address"
             type="email"
             name="address"
             placeholder="username@example.com"
@@ -94,7 +94,7 @@ export default {
         <label for="">
           Password
           <input
-            v-model="account.password"
+            v-model="regData.password"
             type="password"
             name="password"
             required
@@ -108,7 +108,7 @@ export default {
         <label for="">
           Password Repeat
           <input
-            v-model="account.repassword"
+            v-model="regData.repassword"
             type="password"
             name="repassword"
             required
@@ -122,7 +122,7 @@ export default {
         <label for="">
           Name
           <input
-            v-model="account.firstname"
+            v-model="regData.firstname"
             type="text"
             name="firstname"
             placeholder="Вася"
@@ -137,7 +137,7 @@ export default {
         <label>
           Lastname
           <input
-            v-model="account.lastname"
+            v-model="regData.lastname"
             type="text"
             name="lastname"
             placeholder="Васильев"
