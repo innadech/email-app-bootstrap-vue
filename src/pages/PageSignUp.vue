@@ -15,10 +15,7 @@ export default {
 </script>
 
 <template>
-  <div
-    style="width: 70%; height: 600px"
-    class="container-fluid mt-5 bg-light-subtle border rounded-3"
-  >
+  <div class="w-75 container-fluid bg-light-subtle border rounded-3">
     <SignUpSubmitter v-on:reg-data-submitted="submit" />
   </div>
 </template>

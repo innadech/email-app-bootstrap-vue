@@ -53,10 +53,7 @@
       </div>
     </div>
   </nav>
-  <div
-    style="width: 70%; height: 600px"
-    class="container-fluid mt-5 bg-light-subtle border rounded-3"
-  >
+  <div class="w-75 container-fluid mt-5 py-5 bg-light-subtle border rounded-3">
     <RouterView />
   </div>
 </template>

@@ -11,52 +11,49 @@ export default {
         firstname: '',
         lastname: '',
       },
-      err: {
+      err: this.initErr(),
+    }
+  },
+
+  methods: {
+    initErr() {
+      return {
         address: '',
         password: '',
         repassword: '',
         firstname: '',
         lastname: '',
-      },
-    }
-  },
-
-  methods: {
+      }
+    },
     submit() {
-      if (this.regData.address.length === 0) {
+      this.err = this.initErr()
+      if (!this.regData.address) {
         this.err.address = 'Insert email'
-      } else {
-        this.err.address = ''
       }
-      if (this.regData.password.length === 0) {
+      if (!this.regData.password) {
         this.err.password = 'Insert password'
-      } else {
-        this.err.password = ''
       }
-      if (this.regData.repassword.length === 0) {
+      if (!this.regData.repassword) {
         this.err.repassword = 'Repeat password'
-      } else {
-        this.err.repassword = ''
       }
-      if (this.regData.firstname.length === 0) {
+      if (!this.regData.firstname) {
         this.err.firstname = 'Insert firstname'
-      } else {
-        this.err.firstname = ''
       }
-      if (this.regData.lastname.length === 0) {
+      if (!this.regData.lastname) {
         this.err.lastname = 'Insert lastname'
-      } else {
-        this.err.lastname = ''
       }
       if (
-        this.regData.address.length &&
-        this.regData.password.length &&
-        this.regData.firstname.length &&
-        this.regData.lastname.length
+        Object.values(this.regData).every(d => d)
+        this.regData.address &&
+        this.regData.password &&
+        this.regData.repassword &&
+        this.regData.firstname &&
+        this.regData.lastname
       ) {
         this.$emit('reg-data-submitted', { ...this.regData })
         this.regData.address = ''
         this.regData.password = ''
+        this.regData.repassword = ''
         this.regData.firstname = ''
         this.regData.lastname = ''
       }
@@ -67,10 +64,7 @@ export default {
 
 <template>
   <form v-on:submit.prevent="submit">
-    <div
-      style="width: 50%; height: 500px"
-      class="container-fluid mt-5 bg-light-subtle"
-    >
+    <div class="w-50 container-fluid bg-light-subtle">
       <p class="fs-2 text-center">Sign up</p>
       <div class="mb-3">
         <label for="">
@@ -80,12 +74,10 @@ export default {
             type="email"
             name="address"
             placeholder="username@example.com"
-            required
-            minlength="2"
             class="form-control"
           />
         </label>
-        <span v-if="err.address">{{ err.address }}</span>
+        <span class="text-danger" v-if="err.address">{{ err.address }}</span>
       </div>
       <div class="">
         <label for="">
@@ -94,12 +86,10 @@ export default {
             v-model="regData.password"
             type="password"
             name="password"
-            required
-            minlength="3"
             class="form-control"
           />
         </label>
-        <span v-if="err.password">{{ err.password }}</span>
+        <span class="text-danger" v-if="err.password">{{ err.password }}</span>
       </div>
       <div class="">
         <label for="">
@@ -108,12 +98,12 @@ export default {
             v-model="regData.repassword"
             type="password"
             name="repassword"
-            required
-            minlength="3"
             class="form-control"
           />
         </label>
-        <span v-if="err.repassword">{{ err.repassword }}</span>
+        <span class="text-danger" v-if="err.repassword">{{
+          err.repassword
+        }}</span>
       </div>
       <div class="mt-3">
         <label for="">
@@ -123,12 +113,12 @@ export default {
             type="text"
             name="firstname"
             placeholder="Вася"
-            required
-            minlength="1"
             class="form-control"
           />
         </label>
-        <span v-if="err.firstname">{{ err.firstname }}</span>
+        <span class="text-danger" v-if="err.firstname">{{
+          err.firstname
+        }}</span>
       </div>
       <div class="">
         <label>
@@ -138,12 +128,10 @@ export default {
             type="text"
             name="lastname"
             placeholder="Васильев"
-            required
-            minlength="3"
             class="form-control"
           />
         </label>
-        <span v-if="err.lastname">{{ err.lastname }}</span>
+        <span class="text-danger" v-if="err.lastname">{{ err.lastname }}</span>
       </div>
       <div class="text-center mt-5">
         <button type="submit" class="btn btn-primary btn-lg">Sign up</button>
